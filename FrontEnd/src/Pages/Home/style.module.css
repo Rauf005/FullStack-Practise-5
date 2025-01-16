@@ -1,0 +1,151 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Mulish";
+    box-sizing: border-box;
+}
+
+.home{
+    .hero{
+        background-image: url("	https://preview.colorlib.com/theme/shoppers/images/hero_1.jpg");
+        position: relative;
+        height: 80vh;
+
+        .herotext{
+            position: absolute;
+            top: 40%;
+            right: 20%;
+            h1{
+                margin-bottom: 4%;
+                font-size: 50px;
+            }
+            p{
+                margin-bottom: 4%;
+                font-size: 20px;
+                color: gray;
+            }
+            button{
+                background-color: #7971E9;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 13px 40px;
+            }
+        }
+    }
+
+    .services{
+        width: 60%;
+        margin: 5% auto;
+        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        .service{
+            h2{
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            p{
+                color: gray;
+            }
+        }
+    }
+    .collects{
+        width: 60%;
+        margin: 5% auto;
+        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        
+        
+            .collect{
+                position: relative;
+                &:hover img{
+                    transform: scale(1.1);
+                }
+                overflow: hidden;
+                
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                    transition: 1s;
+                }
+            }
+        .coltext{
+            position: absolute;
+            bottom: 5%;
+            left: 3%;
+            color: black;
+            h3{
+                font-size: 30px;
+            
+            }
+            
+
+        }
+    }
+    .dr{
+        padding: 1%;
+        width: 100%;
+        background-color: #F8F9FA;
+    }
+    .featured{
+        width: 60%;
+        margin: 5% auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        hr{
+            
+           border: 2px solid #7971E9 ;
+            width: 50px;
+            margin-bottom: 3%;
+        }
+        h1{
+            margin-bottom: 3%;
+        }
+
+        .products{
+           width: 100%;
+            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+            .product{
+               
+                
+                img{
+                    width: 100%;
+                    
+                }
+                .text{
+                    background-color: white;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    h2{
+                        font-size: 20px;
+                        color: #7971E9;
+                        margin: 4% 0;
+                    }
+                    p{
+                        margin-bottom: 4%;
+                        color: gray;
+                    }
+                    span{
+                        color: #7971E9;
+                        margin-bottom: 4%;
+                    }
+                }
+            }
+    
+        }
+    }
+}
