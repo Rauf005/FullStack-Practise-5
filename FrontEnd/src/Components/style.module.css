@@ -30,3 +30,15 @@
         cursor: pointer;
     }
 }
+.bar{
+    font-size: 25px;
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+   ul{
+    display: none !important;
+   }
+   .bar{
+    display: block !important;
+   }
+  }

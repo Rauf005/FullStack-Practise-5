@@ -1,12 +1,16 @@
 import React from 'react'
 import style from "./style.module.css"
 import {Link , NavLink} from "react-router-dom"
+import { FaBars } from "react-icons/fa";
 
 
 function Navbar() {
   return (
     <div className={style.navbar}>
         <div className={style.nav}>
+            <div className={style.bar}>
+                <p><FaBars/></p>
+            </div>
             <ul>
                 <NavLink to="/"style={({isActive})=>
                 isActive ? {color:"#7971E9"}:{color:"black"}

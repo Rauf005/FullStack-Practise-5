@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import axios from "axios"
 
 function Home() {
-
+    let [searchQuery, setSearchQuery] = useState('')
     let [products,setProducts]=useState([])
     function getData(){
       axios.get("http://localhost:3000/clothes")
@@ -20,6 +20,13 @@ function Home() {
     useEffect(()=>{
        getData()
     },[])
+    function handleSearch(event) {
+        setSearchQuery(event.target.value)
+      }
+      const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+      
   
 
   return (
@@ -77,9 +84,12 @@ function Home() {
 <div className={style.featured}>
 <hr />
     <h1>Featured Products</h1>
+    <form action="">
+          <input style={{marginBottom:"10%"}} value={searchQuery}  onChange={handleSearch} className={style.search} type="text" placeholder='Search'/>
+        </form>
 <div className={style.products}>
-   
-    { products.map(product=>(
+
+    { filteredProducts.map(product=>(
         <div className={style.product}>
  <img src={product.image} key={product._id} alt="" />
 <div className={style.text}> 
