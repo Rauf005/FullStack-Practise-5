@@ -7,6 +7,7 @@ import { FaQuestionCircle } from "react-icons/fa";
 import { useState } from 'react'
 import { useEffect } from 'react';
 import axios from "axios"
+import {Helmet} from "react-helmet";
 
 function Home() {
     let [searchQuery, setSearchQuery] = useState('')
@@ -30,7 +31,12 @@ function Home() {
   
 
   return (
+    
+    
     <div className={style.home}>
+        <Helmet>
+        <title>Home</title>
+        </Helmet>
         <div className={style.hero}>
             
         <div className={style.herotext}>
