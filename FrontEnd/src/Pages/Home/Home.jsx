@@ -3,13 +3,17 @@ import style from "./style.module.css"
 import {Link , NavLink} from "react-router-dom"
 import { FaCarSide } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
+import { FaHeart } from "react-icons/fa";
 import { FaQuestionCircle } from "react-icons/fa";
 import { useState } from 'react'
 import { useEffect } from 'react';
 import axios from "axios"
 import {Helmet} from "react-helmet";
+import { useContext } from 'react';
+import { favoriteContext } from '../../Context/FavoriteContext';
 
-function Home() {
+function Home(product) {
+  let {favorite,setFavorite}=useContext(favoriteContext)
     let [searchQuery, setSearchQuery] = useState('')
     let [products,setProducts]=useState([])
     function getData(){
@@ -28,7 +32,16 @@ function Home() {
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
       )
       
-  
+      function handleAddFavorite(product){
+        let findFavorite= favorite.find(item=>item._id==product._id)
+    
+        if(findFavorite){
+           alert("Bu mehsul wishlistde movcuddur")
+        }else{
+           setFavorite([...favorite,product])
+           alert("Məhsul wishlistə əlavə edildi")
+        }
+     }
 
   return (
     
@@ -98,10 +111,13 @@ function Home() {
     { filteredProducts.map(product=>(
         <div className={style.product}>
  <img src={product.image} key={product._id} alt="" />
+ 
 <div className={style.text}> 
+<span className={style.heart} onClick={()=>handleAddFavorite(product)}><FaHeart /></span>
 <h2>{product.name}</h2>
  <p>{product.description}</p>
  <span>{product.price}$</span></div>
+ 
 </div>
     ))
  
